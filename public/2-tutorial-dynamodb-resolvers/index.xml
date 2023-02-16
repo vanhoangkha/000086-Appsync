@@ -4,6 +4,10 @@
     <title>Tutorial: DynamoDB Resolvers on AWS System Manager</title>
     <link>/2-tutorial-dynamodb-resolvers/</link>
     <description>Recent content in Tutorial: DynamoDB Resolvers on AWS System Manager</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="/2-tutorial-dynamodb-resolvers/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="/2-tutorial-dynamodb-resolvers/index.xml" rel="self" type="application/rss+xml" />
+    
+    
   </channel>
 </rss>

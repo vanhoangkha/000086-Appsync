@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.69.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Truy vấn dữ liệu :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1674051136" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1674051136" rel="stylesheet">
-    <link href="/css/hybrid.css?1674051136" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1674051136" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1674051136" rel="stylesheet">
-    <link href="/css/auto-complete.css?1674051136" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1674051136" rel="stylesheet">
-    <link href="/css/theme.css?1674051136" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1674051136" rel="stylesheet">
+    <link href="/css/nucleus.css?1676545517" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1676545517" rel="stylesheet">
+    <link href="/css/hybrid.css?1676545517" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1676545517" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1676545517" rel="stylesheet">
+    <link href="/css/auto-complete.css?1676545517" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1676545517" rel="stylesheet">
+    <link href="/css/theme.css?1676545517" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1676545517" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1674051136" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1676545517" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1674051136"></script>
+    <script src="/js/jquery-3.3.1.min.js?1676545517"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1674051136"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1674051136"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1676545517"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1676545517"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1674051136"></script>
+<script type="text/javascript" src="/js/search.js?1676545517"></script>
 
     
   </div>
@@ -308,7 +308,7 @@
   
     
     <li data-nav-id="/vi/2-tutorial-dynamodb-resolvers/2-7-query-table/" title="Truy vấn dữ liệu" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -473,7 +473,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>18-01-2023</font></i>
+        <i><font color=orange>16-02-2023</font></i>
     </left>
     <left>
         <br>
@@ -481,8 +481,6 @@
             <b> Team </b> <br>
            
             <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
-                <a href="https://www.linkedin.com/in/hạnh-phạm-725b7322a/"  style="color:orange">Hạnh Phạm </a> <br>
-               
         </i>
         </left>
 
@@ -570,7 +568,7 @@
 <ul>
 <li>Thêm đoạn code dưới đây vào kiểu <strong>Query</strong> để thêm một truy vấn mới là <strong>allPostsByAuthor</strong></li>
 </ul>
-<pre tabindex="0"><code>    allPostsByAuthor(author: String!, count: Int, nextToken: String): PaginatedPosts!
+<pre><code>    allPostsByAuthor(author: String!, count: Int, nextToken: String): PaginatedPosts!
 </code></pre><ul>
 <li>Sau đó ấn <strong>Save Schema</strong></li>
 </ul>
@@ -585,31 +583,31 @@
 <ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the request mapping template</strong></li>
 </ul>
-<pre tabindex="0"><code>{
-    &#34;version&#34; : &#34;2017-02-28&#34;,
-    &#34;operation&#34; : &#34;Query&#34;,
-    &#34;index&#34; : &#34;author-index&#34;,
-    &#34;query&#34; : {
-      &#34;expression&#34;: &#34;author = :author&#34;,
-        &#34;expressionValues&#34; : {
-          &#34;:author&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.author)
+<pre><code>{
+    &quot;version&quot; : &quot;2017-02-28&quot;,
+    &quot;operation&quot; : &quot;Query&quot;,
+    &quot;index&quot; : &quot;author-index&quot;,
+    &quot;query&quot; : {
+      &quot;expression&quot;: &quot;author = :author&quot;,
+        &quot;expressionValues&quot; : {
+          &quot;:author&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.author)
         }
     }
     #if( ${context.arguments.count} )
-        ,&#34;limit&#34;: $util.toJson($context.arguments.count)
+        ,&quot;limit&quot;: $util.toJson($context.arguments.count)
     #end
     #if( ${context.arguments.nextToken} )
-        ,&#34;nextToken&#34;: &#34;${context.arguments.nextToken}&#34;
+        ,&quot;nextToken&quot;: &quot;${context.arguments.nextToken}&quot;
     #end
 }
 </code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-7-query-table-3.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
 <ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the response mapping template</strong></li>
 </ul>
-<pre tabindex="0"><code>{
-    &#34;posts&#34;: $utils.toJson($context.result.items)
+<pre><code>{
+    &quot;posts&quot;: $utils.toJson($context.result.items)
     #if( ${context.result.nextToken} )
-        ,&#34;nextToken&#34;: $util.toJson($context.result.nextToken)
+        ,&quot;nextToken&quot;: $util.toJson($context.result.nextToken)
     #end
 }
 </code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-7-query-table-4.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
@@ -623,10 +621,10 @@
 <ul>
 <li>Dán đoạn script dưới đây vào phần <strong>Queries</strong></li>
 </ul>
-<pre tabindex="0"><code>mutation addPost {
-  post1: addPost(id:10 author: &#34;Nadia&#34; title: &#34;The cutest dog in the world&#34; content: &#34;So cute. So very, very cute.&#34; url: &#34;https://aws.amazon.com/appsync/&#34; ) { author, title }
-  post2: addPost(id:11 author: &#34;Nadia&#34; title: &#34;Did you know...?&#34; content: &#34;AppSync works offline?&#34; url: &#34;https://aws.amazon.com/appsync/&#34; ) { author, title }
-  post3: addPost(id:12 author: &#34;Steve&#34; title: &#34;I like GraphQL&#34; content: &#34;It&#39;s great&#34; url: &#34;https://aws.amazon.com/appsync/&#34; ) { author, title }
+<pre><code>mutation addPost {
+  post1: addPost(id:10 author: &quot;Nadia&quot; title: &quot;The cutest dog in the world&quot; content: &quot;So cute. So very, very cute.&quot; url: &quot;https://aws.amazon.com/appsync/&quot; ) { author, title }
+  post2: addPost(id:11 author: &quot;Nadia&quot; title: &quot;Did you know...?&quot; content: &quot;AppSync works offline?&quot; url: &quot;https://aws.amazon.com/appsync/&quot; ) { author, title }
+  post3: addPost(id:12 author: &quot;Steve&quot; title: &quot;I like GraphQL&quot; content: &quot;It's great&quot; url: &quot;https://aws.amazon.com/appsync/&quot; ) { author, title }
 }
 </code></pre><ul>
 <li>Ấn Sau đó ấn <strong>Execute query</strong> (nút màu cam)</li>
@@ -635,8 +633,8 @@
 <ol start="5">
 <li>Dán đoạn script dưới đây vào phần <strong>Queries</strong></li>
 </ol>
-<pre tabindex="0"><code>query allPostsByAuthor {
-  allPostsByAuthor(author: &#34;Nadia&#34;) {
+<pre><code>query allPostsByAuthor {
+  allPostsByAuthor(author: &quot;Nadia&quot;) {
     posts {
       id
       title
@@ -908,19 +906,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1674051136"></script>
-    <script src="/js/perfect-scrollbar.min.js?1674051136"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1674051136"></script>
-    <script src="/js/jquery.sticky.js?1674051136"></script>
-    <script src="/js/featherlight.min.js?1674051136"></script>
-    <script src="/js/highlight.pack.js?1674051136"></script>
+    <script src="/js/clipboard.min.js?1676545517"></script>
+    <script src="/js/perfect-scrollbar.min.js?1676545517"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1676545517"></script>
+    <script src="/js/jquery.sticky.js?1676545517"></script>
+    <script src="/js/featherlight.min.js?1676545517"></script>
+    <script src="/js/highlight.pack.js?1676545517"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1674051136"></script>
-    <script src="/js/learn.js?1674051136"></script>
-    <script src="/js/hugo-learn.js?1674051136"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1676545517"></script>
+    <script src="/js/learn.js?1676545517"></script>
+    <script src="/js/hugo-learn.js?1676545517"></script>
 
-    <link href="/mermaid/mermaid.css?1674051136" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1674051136"></script>
+    <link href="/mermaid/mermaid.css?1676545517" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1676545517"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

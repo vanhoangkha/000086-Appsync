@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
     <loc>/1-introduction/</loc>
     <xhtml:link
@@ -13,7 +14,9 @@
                 hreflang="en"
                 href="/1-introduction/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-tutorial-dynamodb-resolvers/2-1-prepare/</loc>
     <xhtml:link
                 rel="alternate"
@@ -25,7 +28,9 @@
                 hreflang="en"
                 href="/2-tutorial-dynamodb-resolvers/2-1-prepare/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/</loc>
     <xhtml:link
                 rel="alternate"
@@ -37,7 +42,9 @@
                 hreflang="en"
                 href="/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-tutorial-dynamodb-resolvers/</loc>
     <xhtml:link
                 rel="alternate"
@@ -49,7 +56,9 @@
                 hreflang="en"
                 href="/2-tutorial-dynamodb-resolvers/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-tutorial-dynamodb-resolvers/2-2-put-item/</loc>
     <xhtml:link
                 rel="alternate"
@@ -61,7 +70,9 @@
                 hreflang="en"
                 href="/2-tutorial-dynamodb-resolvers/2-2-put-item/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-tutorial-dynamodb-resolvers/2-3-get-item/</loc>
     <xhtml:link
                 rel="alternate"
@@ -73,7 +84,9 @@
                 hreflang="en"
                 href="/2-tutorial-dynamodb-resolvers/2-3-get-item/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/3-complex-object/</loc>
     <xhtml:link
                 rel="alternate"
@@ -85,7 +98,9 @@
                 hreflang="en"
                 href="/3-complex-object/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/4-clean-up/</loc>
     <xhtml:link
                 rel="alternate"
@@ -97,7 +112,9 @@
                 hreflang="en"
                 href="/4-clean-up/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-tutorial-dynamodb-resolvers/2-4-update-item/</loc>
     <xhtml:link
                 rel="alternate"
@@ -109,7 +126,9 @@
                 hreflang="en"
                 href="/2-tutorial-dynamodb-resolvers/2-4-update-item/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-tutorial-dynamodb-resolvers/2-5-delete-item/</loc>
     <xhtml:link
                 rel="alternate"
@@ -121,7 +140,9 @@
                 hreflang="en"
                 href="/2-tutorial-dynamodb-resolvers/2-5-delete-item/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-tutorial-dynamodb-resolvers/2-6-scan-table/</loc>
     <xhtml:link
                 rel="alternate"
@@ -133,7 +154,9 @@
                 hreflang="en"
                 href="/2-tutorial-dynamodb-resolvers/2-6-scan-table/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/2-tutorial-dynamodb-resolvers/2-7-query-table/</loc>
     <xhtml:link
                 rel="alternate"
@@ -145,7 +168,9 @@
                 hreflang="en"
                 href="/2-tutorial-dynamodb-resolvers/2-7-query-table/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -157,7 +182,9 @@
                 hreflang="en"
                 href="/categories/"
                 />
-  </url><url>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -170,4 +197,5 @@
                 href="/tags/"
                 />
   </url>
+  
 </urlset>
