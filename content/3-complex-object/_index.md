@@ -1,5 +1,5 @@
 ---
-title : "reate complex object"
+title : "Create complex object"
 date :  "`r Sys.Date()`" 
 weight : 3
 chapter : false

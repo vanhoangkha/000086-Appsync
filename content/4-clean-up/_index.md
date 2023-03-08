@@ -1,5 +1,5 @@
 ---
-title : "Dọn dẹp tài nguyên"
+title : "Cleanup"
 date :  "`r Sys.Date()`" 
 weight : 4
 chapter : false

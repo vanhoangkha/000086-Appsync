@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Updating data :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1676545517" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1676545517" rel="stylesheet">
-    <link href="/css/hybrid.css?1676545517" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1676545517" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1676545517" rel="stylesheet">
-    <link href="/css/auto-complete.css?1676545517" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1676545517" rel="stylesheet">
-    <link href="/css/theme.css?1676545517" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1676545517" rel="stylesheet">
+    <link href="/css/nucleus.css?1678261536" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1678261536" rel="stylesheet">
+    <link href="/css/hybrid.css?1678261536" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1678261536" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1678261536" rel="stylesheet">
+    <link href="/css/auto-complete.css?1678261536" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1678261536" rel="stylesheet">
+    <link href="/css/theme.css?1678261536" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1678261536" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1676545517" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1678261536" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1676545517"></script>
+    <script src="/js/jquery-3.3.1.min.js?1678261536"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1676545517"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1676545517"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1678261536"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1678261536"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1676545517"></script>
+<script type="text/javascript" src="/js/search.js?1678261536"></script>
 
     
   </div>
@@ -342,13 +342,13 @@
  
   
     
-    <li data-nav-id="/3-complex-object/" title="reate complex object" class="dd-item 
+    <li data-nav-id="/3-complex-object/" title="Create complex object" class="dd-item 
         
         
         
         ">
       <a href="/3-complex-object/">
-           <b> 3. </b> reate complex object
+           <b> 3. </b> Create complex object
           
             <i class="fas fa-check read-icon"></i>
           
@@ -368,13 +368,13 @@
  
   
     
-    <li data-nav-id="/4-clean-up/" title="Dọn dẹp tài nguyên" class="dd-item 
+    <li data-nav-id="/4-clean-up/" title="Cleanup" class="dd-item 
         
         
         
         ">
       <a href="/4-clean-up/">
-           <b> 4. </b> Dọn dẹp tài nguyên
+           <b> 4. </b> Cleanup
           
             <i class="fas fa-check read-icon"></i>
           
@@ -473,7 +473,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>16-02-2023</font></i>
+        <i><font color=orange>08-03-2023</font></i>
     </left>
     <left>
         <br>
@@ -578,7 +578,7 @@
 <li>Add the below code to <strong>Mutation</strong> type to add a new <strong>updatePost</strong> mutation</li>
 <li>Then click <strong>Save Schema</strong></li>
 </ul>
-<pre><code>    updatePost(
+<pre tabindex="0"><code>    updatePost(
         id: ID!,
         author: String!,
         title: String!,
@@ -596,23 +596,23 @@
 <ul>
 <li>Paste the following content to <strong>Configure the request mapping template</strong></li>
 </ul>
-<pre><code>{
-    &quot;version&quot; : &quot;2017-02-28&quot;,
-    &quot;operation&quot; : &quot;UpdateItem&quot;,
-    &quot;key&quot; : {
-        &quot;id&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
+<pre tabindex="0"><code>{
+    &#34;version&#34; : &#34;2017-02-28&#34;,
+    &#34;operation&#34; : &#34;UpdateItem&#34;,
+    &#34;key&#34; : {
+        &#34;id&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
     },
-    &quot;update&quot; : {
-        &quot;expression&quot; : &quot;SET author = :author, title = :title, content = :content, #url = :url ADD version :one&quot;,
-        &quot;expressionNames&quot;: {
-            &quot;#url&quot; : &quot;url&quot;
+    &#34;update&#34; : {
+        &#34;expression&#34; : &#34;SET author = :author, title = :title, content = :content, #url = :url ADD version :one&#34;,
+        &#34;expressionNames&#34;: {
+            &#34;#url&#34; : &#34;url&#34;
         },
-        &quot;expressionValues&quot;: {
-            &quot;:author&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.author),
-            &quot;:title&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.title),
-            &quot;:content&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.content),
-            &quot;:url&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.url),
-            &quot;:one&quot; : { &quot;N&quot;: 1 }
+        &#34;expressionValues&#34;: {
+            &#34;:author&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.author),
+            &#34;:title&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.title),
+            &#34;:content&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.content),
+            &#34;:url&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.url),
+            &#34;:one&#34; : { &#34;N&#34;: 1 }
         }
     }
 }
@@ -624,7 +624,7 @@
 <ol start="4">
 <li>Scroll down, paste the following content to <strong>Configure the response mapping template</strong></li>
 </ol>
-<pre><code>$utils.toJson($context.result)
+<pre tabindex="0"><code>$utils.toJson($context.result)
 </code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-4.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
 <ol start="4">
 <li>Scroll up, click <strong>Save Resolver</strong></li>
@@ -636,13 +636,13 @@
 <ul>
 <li>Paste the following mutation to <strong>Queries</strong> pane, then click <strong>Execute query</strong> (the orange play button)</li>
 </ul>
-<pre><code>mutation updatePost {
+<pre tabindex="0"><code>mutation updatePost {
   updatePost(
-    id:&quot;123&quot;
-    author: &quot;A new author&quot;
-    title: &quot;An updated author!&quot;
-    content: &quot;Now with updated content!&quot;
-    url: &quot;https://aws.amazon.com/appsync/&quot;
+    id:&#34;123&#34;
+    author: &#34;A new author&#34;
+    title: &#34;An updated author!&#34;
+    content: &#34;Now with updated content!&#34;
+    url: &#34;https://aws.amazon.com/appsync/&#34;
   ) {
     id
     author
@@ -658,17 +658,17 @@
 <ol start="6">
 <li>The return result should look similar to the following</li>
 </ol>
-<pre><code>{
-  &quot;data&quot;: {
-    &quot;updatePost&quot;: {
-      &quot;id&quot;: &quot;123&quot;,
-      &quot;author&quot;: &quot;A new author&quot;,
-      &quot;title&quot;: &quot;An updated author!&quot;,
-      &quot;content&quot;: &quot;Now with updated content!&quot;,
-      &quot;url&quot;: &quot;https://aws.amazon.com/appsync/&quot;,
-      &quot;ups&quot;: 1,
-      &quot;downs&quot;: 0,
-      &quot;version&quot;: 2
+<pre tabindex="0"><code>{
+  &#34;data&#34;: {
+    &#34;updatePost&#34;: {
+      &#34;id&#34;: &#34;123&#34;,
+      &#34;author&#34;: &#34;A new author&#34;,
+      &#34;title&#34;: &#34;An updated author!&#34;,
+      &#34;content&#34;: &#34;Now with updated content!&#34;,
+      &#34;url&#34;: &#34;https://aws.amazon.com/appsync/&#34;,
+      &#34;ups&#34;: 1,
+      &#34;downs&#34;: 0,
+      &#34;version&#34;: 2
     }
   }
 }
@@ -687,7 +687,7 @@ Follow the next steps to fix the above problem</li>
 <li>Replace the code of the <strong>updatePost</strong> mutation with the following content:</li>
 <li>Then click <strong>Save Schema</strong></li>
 </ul>
-<pre><code>    updatePost(
+<pre tabindex="0"><code>    updatePost(
         id: ID!,
         author: String,
         title: String,
@@ -707,92 +707,92 @@ Follow the next steps to fix the above problem</li>
 <ul>
 <li>Then click <strong>Save Resolver</strong></li>
 </ul>
-<pre><code>{
-    &quot;version&quot; : &quot;2017-02-28&quot;,
-    &quot;operation&quot; : &quot;UpdateItem&quot;,
-    &quot;key&quot; : {
-        &quot;id&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
+<pre tabindex="0"><code>{
+    &#34;version&#34; : &#34;2017-02-28&#34;,
+    &#34;operation&#34; : &#34;UpdateItem&#34;,
+    &#34;key&#34; : {
+        &#34;id&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
     },
 
-    ## Set up some space to keep track of things you're updating **
+    ## Set up some space to keep track of things you&#39;re updating **
     #set( $expNames  = {} )
     #set( $expValues = {} )
     #set( $expSet = {} )
     #set( $expAdd = {} )
     #set( $expRemove = [] )
 
-    ## Increment &quot;version&quot; by 1 **
-    $!{expAdd.put(&quot;version&quot;, &quot;:one&quot;)}
-    $!{expValues.put(&quot;:one&quot;, { &quot;N&quot; : 1 })}
+    ## Increment &#34;version&#34; by 1 **
+    $!{expAdd.put(&#34;version&#34;, &#34;:one&#34;)}
+    $!{expValues.put(&#34;:one&#34;, { &#34;N&#34; : 1 })}
 
-    ## Iterate through each argument, skipping &quot;id&quot; and &quot;expectedVersion&quot; **
+    ## Iterate through each argument, skipping &#34;id&#34; and &#34;expectedVersion&#34; **
     #foreach( $entry in $context.arguments.entrySet() )
-        #if( $entry.key != &quot;id&quot; &amp;&amp; $entry.key != &quot;expectedVersion&quot; )
-            #if( (!$entry.value) &amp;&amp; (&quot;$!{entry.value}&quot; == &quot;&quot;) )
-                ## If the argument is set to &quot;null&quot;, then remove that attribute from the item in DynamoDB **
+        #if( $entry.key != &#34;id&#34; &amp;&amp; $entry.key != &#34;expectedVersion&#34; )
+            #if( (!$entry.value) &amp;&amp; (&#34;$!{entry.value}&#34; == &#34;&#34;) )
+                ## If the argument is set to &#34;null&#34;, then remove that attribute from the item in DynamoDB **
 
-                #set( $discard = ${expRemove.add(&quot;#${entry.key}&quot;)} )
-                $!{expNames.put(&quot;#${entry.key}&quot;, &quot;$entry.key&quot;)}
+                #set( $discard = ${expRemove.add(&#34;#${entry.key}&#34;)} )
+                $!{expNames.put(&#34;#${entry.key}&#34;, &#34;$entry.key&#34;)}
             #else
                 ## Otherwise set (or update) the attribute on the item in DynamoDB **
 
-                $!{expSet.put(&quot;#${entry.key}&quot;, &quot;:${entry.key}&quot;)}
-                $!{expNames.put(&quot;#${entry.key}&quot;, &quot;$entry.key&quot;)}
-                $!{expValues.put(&quot;:${entry.key}&quot;, { &quot;S&quot; : &quot;${entry.value}&quot; })}
+                $!{expSet.put(&#34;#${entry.key}&#34;, &#34;:${entry.key}&#34;)}
+                $!{expNames.put(&#34;#${entry.key}&#34;, &#34;$entry.key&#34;)}
+                $!{expValues.put(&#34;:${entry.key}&#34;, { &#34;S&#34; : &#34;${entry.value}&#34; })}
             #end
         #end
     #end
 
-    ## Start building the update expression, starting with attributes you're going to SET **
-    #set( $expression = &quot;&quot; )
+    ## Start building the update expression, starting with attributes you&#39;re going to SET **
+    #set( $expression = &#34;&#34; )
     #if( !${expSet.isEmpty()} )
-        #set( $expression = &quot;SET&quot; )
+        #set( $expression = &#34;SET&#34; )
         #foreach( $entry in $expSet.entrySet() )
-            #set( $expression = &quot;${expression} ${entry.key} = ${entry.value}&quot; )
+            #set( $expression = &#34;${expression} ${entry.key} = ${entry.value}&#34; )
             #if ( $foreach.hasNext )
-                #set( $expression = &quot;${expression},&quot; )
+                #set( $expression = &#34;${expression},&#34; )
             #end
         #end
     #end
 
-    ## Continue building the update expression, adding attributes you're going to ADD **
+    ## Continue building the update expression, adding attributes you&#39;re going to ADD **
     #if( !${expAdd.isEmpty()} )
-        #set( $expression = &quot;${expression} ADD&quot; )
+        #set( $expression = &#34;${expression} ADD&#34; )
         #foreach( $entry in $expAdd.entrySet() )
-            #set( $expression = &quot;${expression} ${entry.key} ${entry.value}&quot; )
+            #set( $expression = &#34;${expression} ${entry.key} ${entry.value}&#34; )
             #if ( $foreach.hasNext )
-                #set( $expression = &quot;${expression},&quot; )
+                #set( $expression = &#34;${expression},&#34; )
             #end
         #end
     #end
 
-    ## Continue building the update expression, adding attributes you're going to REMOVE **
+    ## Continue building the update expression, adding attributes you&#39;re going to REMOVE **
     #if( !${expRemove.isEmpty()} )
-        #set( $expression = &quot;${expression} REMOVE&quot; )
+        #set( $expression = &#34;${expression} REMOVE&#34; )
 
         #foreach( $entry in $expRemove )
-            #set( $expression = &quot;${expression} ${entry}&quot; )
+            #set( $expression = &#34;${expression} ${entry}&#34; )
             #if ( $foreach.hasNext )
-                #set( $expression = &quot;${expression},&quot; )
+                #set( $expression = &#34;${expression},&#34; )
             #end
         #end
     #end
 
     ## Finally, write the update expression into the document, along with any expressionNames and expressionValues **
-    &quot;update&quot; : {
-        &quot;expression&quot; : &quot;${expression}&quot;
+    &#34;update&#34; : {
+        &#34;expression&#34; : &#34;${expression}&#34;
         #if( !${expNames.isEmpty()} )
-            ,&quot;expressionNames&quot; : $utils.toJson($expNames)
+            ,&#34;expressionNames&#34; : $utils.toJson($expNames)
         #end
         #if( !${expValues.isEmpty()} )
-            ,&quot;expressionValues&quot; : $utils.toJson($expValues)
+            ,&#34;expressionValues&#34; : $utils.toJson($expValues)
         #end
     },
 
-    &quot;condition&quot; : {
-        &quot;expression&quot;       : &quot;version = :expectedVersion&quot;,
-        &quot;expressionValues&quot; : {
-            &quot;:expectedVersion&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.expectedVersion)
+    &#34;condition&#34; : {
+        &#34;expression&#34;       : &#34;version = :expectedVersion&#34;,
+        &#34;expressionValues&#34; : {
+            &#34;:expectedVersion&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.expectedVersion)
         }
     }
 }
@@ -804,10 +804,10 @@ Follow the next steps to fix the above problem</li>
 <ul>
 <li>Paste the following mutation to <strong>Queries</strong> pane, then click <strong>Execute query</strong> (the orange play button)</li>
 </ul>
-<pre><code>mutation updatePost {
+<pre tabindex="0"><code>mutation updatePost {
   updatePost(
     id:123
-    title: &quot;An empty story&quot;
+    title: &#34;An empty story&#34;
     content: null
     expectedVersion: 2
   ) {
@@ -825,17 +825,17 @@ Follow the next steps to fix the above problem</li>
 <ol start="12">
 <li>The return result should look similar to the following:</li>
 </ol>
-<pre><code>{
-  &quot;data&quot;: {
-    &quot;updatePost&quot;: {
-      &quot;id&quot;: &quot;123&quot;,
-      &quot;author&quot;: &quot;A new author&quot;,
-      &quot;title&quot;: &quot;An empty story&quot;,
-      &quot;content&quot;: null,
-      &quot;url&quot;: &quot;https://aws.amazon.com/appsync/&quot;,
-      &quot;ups&quot;: 1,
-      &quot;downs&quot;: 0,
-      &quot;version&quot;: 3
+<pre tabindex="0"><code>{
+  &#34;data&#34;: {
+    &#34;updatePost&#34;: {
+      &#34;id&#34;: &#34;123&#34;,
+      &#34;author&#34;: &#34;A new author&#34;,
+      &#34;title&#34;: &#34;An empty story&#34;,
+      &#34;content&#34;: null,
+      &#34;url&#34;: &#34;https://aws.amazon.com/appsync/&#34;,
+      &#34;ups&#34;: 1,
+      &#34;downs&#34;: 0,
+      &#34;version&#34;: 3
     }
   }
 }
@@ -861,7 +861,7 @@ Follow the next steps to fix the above problem</li>
 <ul>
 <li>Add the below code to <strong>Mutation</strong> type to add 2 new mutations are <strong>upvotePost</strong> and <strong>downvotePost</strong></li>
 </ul>
-<pre><code>    upvotePost(id: ID!): Post
+<pre tabindex="0"><code>    upvotePost(id: ID!): Post
     downvotePost(id: ID!): Post
 </code></pre><ul>
 <li>Then click <strong>Save Schema</strong></li>
@@ -874,23 +874,23 @@ Follow the next steps to fix the above problem</li>
 <ul>
 <li>Paste the following content to <strong>Configure the request mapping template</strong></li>
 </ul>
-<pre><code>{
-    &quot;version&quot; : &quot;2017-02-28&quot;,
-    &quot;operation&quot; : &quot;UpdateItem&quot;,
-    &quot;key&quot; : {
-        &quot;id&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
+<pre tabindex="0"><code>{
+    &#34;version&#34; : &#34;2017-02-28&#34;,
+    &#34;operation&#34; : &#34;UpdateItem&#34;,
+    &#34;key&#34; : {
+        &#34;id&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
     },
-    &quot;update&quot; : {
-        &quot;expression&quot; : &quot;ADD ups :plusOne, version :plusOne&quot;,
-        &quot;expressionValues&quot; : {
-            &quot;:plusOne&quot; : { &quot;N&quot; : 1 }
+    &#34;update&#34; : {
+        &#34;expression&#34; : &#34;ADD ups :plusOne, version :plusOne&#34;,
+        &#34;expressionValues&#34; : {
+            &#34;:plusOne&#34; : { &#34;N&#34; : 1 }
         }
     }
 }
 </code></pre><ul>
 <li>Paste the following content to <strong>Configure the response mapping template</strong></li>
 </ul>
-<pre><code>$utils.toJson($context.result)
+<pre tabindex="0"><code>$utils.toJson($context.result)
 </code></pre><ul>
 <li>Click <strong>Save Resolver</strong></li>
 </ul>
@@ -908,23 +908,23 @@ Follow the next steps to fix the above problem</li>
 <ul>
 <li>Paste the following content to <strong>Configure the request mapping template</strong></li>
 </ul>
-<pre><code>{
-    &quot;version&quot; : &quot;2017-02-28&quot;,
-    &quot;operation&quot; : &quot;UpdateItem&quot;,
-    &quot;key&quot; : {
-        &quot;id&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
+<pre tabindex="0"><code>{
+    &#34;version&#34; : &#34;2017-02-28&#34;,
+    &#34;operation&#34; : &#34;UpdateItem&#34;,
+    &#34;key&#34; : {
+        &#34;id&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
     },
-    &quot;update&quot; : {
-        &quot;expression&quot; : &quot;ADD downs :plusOne, version :plusOne&quot;,
-        &quot;expressionValues&quot; : {
-            &quot;:plusOne&quot; : { &quot;N&quot; : 1 }
+    &#34;update&#34; : {
+        &#34;expression&#34; : &#34;ADD downs :plusOne, version :plusOne&#34;,
+        &#34;expressionValues&#34; : {
+            &#34;:plusOne&#34; : { &#34;N&#34; : 1 }
         }
     }
 }
 </code></pre><ul>
 <li>Paste the following content to <strong>Configure the response mapping template</strong></li>
 </ul>
-<pre><code>$utils.toJson($context.result)
+<pre tabindex="0"><code>$utils.toJson($context.result)
 </code></pre><ul>
 <li>Click <strong>Save Resolver</strong></li>
 </ul>
@@ -935,7 +935,7 @@ Follow the next steps to fix the above problem</li>
 <ul>
 <li>Paste the following mutation to <strong>Queries</strong> pane, then click <strong>Execute query</strong> (the orange play button)</li>
 </ul>
-<pre><code>mutation votePost {
+<pre tabindex="0"><code>mutation votePost {
   upvotePost(id:123) {
     id
     author
@@ -951,24 +951,24 @@ Follow the next steps to fix the above problem</li>
 <ol start="6">
 <li>The return result should look similar to the following:</li>
 </ol>
-<pre><code>{
-  &quot;data&quot;: {
-    &quot;upvotePost&quot;: {
-      &quot;id&quot;: &quot;123&quot;,
-      &quot;author&quot;: &quot;A new author&quot;,
-      &quot;title&quot;: &quot;An empty story&quot;,
-      &quot;content&quot;: null,
-      &quot;url&quot;: &quot;https://aws.amazon.com/appsync/&quot;,
-      &quot;ups&quot;: 2,
-      &quot;downs&quot;: 0,
-      &quot;version&quot;: 4
+<pre tabindex="0"><code>{
+  &#34;data&#34;: {
+    &#34;upvotePost&#34;: {
+      &#34;id&#34;: &#34;123&#34;,
+      &#34;author&#34;: &#34;A new author&#34;,
+      &#34;title&#34;: &#34;An empty story&#34;,
+      &#34;content&#34;: null,
+      &#34;url&#34;: &#34;https://aws.amazon.com/appsync/&#34;,
+      &#34;ups&#34;: 2,
+      &#34;downs&#34;: 0,
+      &#34;version&#34;: 4
     }
   }
 }
 </code></pre><ol start="7">
 <li>Chane query to <strong>downvotePost</strong></li>
 </ol>
-<pre><code>mutation votePost {
+<pre tabindex="0"><code>mutation votePost {
   downvotePost(id:123) {
     id
     author
@@ -1233,19 +1233,19 @@ Follow the next steps to fix the above problem</li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1676545517"></script>
-    <script src="/js/perfect-scrollbar.min.js?1676545517"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1676545517"></script>
-    <script src="/js/jquery.sticky.js?1676545517"></script>
-    <script src="/js/featherlight.min.js?1676545517"></script>
-    <script src="/js/highlight.pack.js?1676545517"></script>
+    <script src="/js/clipboard.min.js?1678261536"></script>
+    <script src="/js/perfect-scrollbar.min.js?1678261536"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1678261536"></script>
+    <script src="/js/jquery.sticky.js?1678261536"></script>
+    <script src="/js/featherlight.min.js?1678261536"></script>
+    <script src="/js/highlight.pack.js?1678261536"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1676545517"></script>
-    <script src="/js/learn.js?1676545517"></script>
-    <script src="/js/hugo-learn.js?1676545517"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1678261536"></script>
+    <script src="/js/learn.js?1678261536"></script>
+    <script src="/js/hugo-learn.js?1678261536"></script>
 
-    <link href="/mermaid/mermaid.css?1676545517" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1676545517"></script>
+    <link href="/mermaid/mermaid.css?1678261536" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1678261536"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

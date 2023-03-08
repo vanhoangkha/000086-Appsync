@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/vi/2-tutorial-dynamodb-resolvers/2-1-prepare/</loc>
     <xhtml:link
@@ -14,9 +13,7 @@
                 hreflang="vi"
                 href="/vi/2-tutorial-dynamodb-resolvers/2-1-prepare/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/1-introduction/</loc>
     <xhtml:link
                 rel="alternate"
@@ -28,9 +25,7 @@
                 hreflang="vi"
                 href="/vi/1-introduction/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/</loc>
     <xhtml:link
                 rel="alternate"
@@ -42,9 +37,7 @@
                 hreflang="vi"
                 href="/vi/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-tutorial-dynamodb-resolvers/2-2-put-item/</loc>
     <xhtml:link
                 rel="alternate"
@@ -56,9 +49,7 @@
                 hreflang="vi"
                 href="/vi/2-tutorial-dynamodb-resolvers/2-2-put-item/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-tutorial-dynamodb-resolvers/</loc>
     <xhtml:link
                 rel="alternate"
@@ -70,23 +61,7 @@
                 hreflang="vi"
                 href="/vi/2-tutorial-dynamodb-resolvers/"
                 />
-  </url>
-  
-  <url>
-    <loc>/vi/3-complex-object/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-complex-object/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-complex-object/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-tutorial-dynamodb-resolvers/2-3-get-item/</loc>
     <xhtml:link
                 rel="alternate"
@@ -98,9 +73,19 @@
                 hreflang="vi"
                 href="/vi/2-tutorial-dynamodb-resolvers/2-3-get-item/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/vi/3-complex-object/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-complex-object/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-complex-object/"
+                />
+  </url><url>
     <loc>/vi/2-tutorial-dynamodb-resolvers/2-4-update-item/</loc>
     <xhtml:link
                 rel="alternate"
@@ -112,9 +97,7 @@
                 hreflang="vi"
                 href="/vi/2-tutorial-dynamodb-resolvers/2-4-update-item/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/4-clean-up/</loc>
     <xhtml:link
                 rel="alternate"
@@ -126,9 +109,7 @@
                 hreflang="vi"
                 href="/vi/4-clean-up/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-tutorial-dynamodb-resolvers/2-5-delete-item/</loc>
     <xhtml:link
                 rel="alternate"
@@ -140,9 +121,7 @@
                 hreflang="vi"
                 href="/vi/2-tutorial-dynamodb-resolvers/2-5-delete-item/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-tutorial-dynamodb-resolvers/2-6-scan-table/</loc>
     <xhtml:link
                 rel="alternate"
@@ -154,9 +133,7 @@
                 hreflang="vi"
                 href="/vi/2-tutorial-dynamodb-resolvers/2-6-scan-table/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/2-tutorial-dynamodb-resolvers/2-7-query-table/</loc>
     <xhtml:link
                 rel="alternate"
@@ -168,9 +145,7 @@
                 hreflang="vi"
                 href="/vi/2-tutorial-dynamodb-resolvers/2-7-query-table/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -182,9 +157,7 @@
                 hreflang="vi"
                 href="/vi/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/vi/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -197,5 +170,4 @@
                 href="/vi/tags/"
                 />
   </url>
-  
 </urlset>

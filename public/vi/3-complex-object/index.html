@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Tạo đối tượng phức tạp :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1676545517" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1676545517" rel="stylesheet">
-    <link href="/css/hybrid.css?1676545517" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1676545517" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1676545517" rel="stylesheet">
-    <link href="/css/auto-complete.css?1676545517" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1676545517" rel="stylesheet">
-    <link href="/css/theme.css?1676545517" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1676545517" rel="stylesheet">
+    <link href="/css/nucleus.css?1678261536" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1678261536" rel="stylesheet">
+    <link href="/css/hybrid.css?1678261536" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1678261536" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1678261536" rel="stylesheet">
+    <link href="/css/auto-complete.css?1678261536" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1678261536" rel="stylesheet">
+    <link href="/css/theme.css?1678261536" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1678261536" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1676545517" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1678261536" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1676545517"></script>
+    <script src="/js/jquery-3.3.1.min.js?1678261536"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1676545517"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1676545517"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1678261536"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1678261536"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1676545517"></script>
+<script type="text/javascript" src="/js/search.js?1678261536"></script>
 
     
   </div>
@@ -473,7 +473,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>16-02-2023</font></i>
+        <i><font color=orange>08-03-2023</font></i>
     </left>
     <left>
         <br>
@@ -562,7 +562,7 @@
 <ul>
 <li>Thêm thuộc tính <strong>tags</strong> cho bài đăng</li>
 </ul>
-<pre><code>  type Post {
+<pre tabindex="0"><code>  type Post {
   id: ID!
   author: String
   title: String
@@ -576,11 +576,11 @@
 </code></pre><ul>
 <li>Thêm dòng dưới đây vào kiểu <strong>Query</strong> để thêm một truy vấn mới là <strong>allPostsByTag</strong></li>
 </ul>
-<pre><code>  allPostsByTag(tag: String!, count: Int, nextToken: String): PaginatedPosts!
+<pre tabindex="0"><code>  allPostsByTag(tag: String!, count: Int, nextToken: String): PaginatedPosts!
 </code></pre><ul>
 <li>Thêm hai mutation mới - addTag và removeTag - vào kiểu <strong>Mutation</strong></li>
 </ul>
-<pre><code>type Mutation {
+<pre tabindex="0"><code>type Mutation {
   addTag(id: ID!, tag: String!): Post
   removeTag(id: ID!, tag: String!): Post
   .....
@@ -599,30 +599,30 @@
 <ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the request mapping template</strong></li>
 </ul>
-<pre><code>{
-    &quot;version&quot; : &quot;2017-02-28&quot;,
-    &quot;operation&quot; : &quot;Scan&quot;,
-    &quot;filter&quot;: {
-      &quot;expression&quot;: &quot;contains (tags, :tag)&quot;,
-        &quot;expressionValues&quot;: {
-          &quot;:tag&quot;: $util.dynamodb.toDynamoDBJson($context.arguments.tag)
+<pre tabindex="0"><code>{
+    &#34;version&#34; : &#34;2017-02-28&#34;,
+    &#34;operation&#34; : &#34;Scan&#34;,
+    &#34;filter&#34;: {
+      &#34;expression&#34;: &#34;contains (tags, :tag)&#34;,
+        &#34;expressionValues&#34;: {
+          &#34;:tag&#34;: $util.dynamodb.toDynamoDBJson($context.arguments.tag)
         }
     }
     #if( ${context.arguments.count} )
-        ,&quot;limit&quot;: $util.toJson($context.arguments.count)
+        ,&#34;limit&#34;: $util.toJson($context.arguments.count)
     #end
     #if( ${context.arguments.nextToken} )
-        ,&quot;nextToken&quot;: $util.toJson($context.arguments.nextToken)
+        ,&#34;nextToken&#34;: $util.toJson($context.arguments.nextToken)
     #end
 }
 </code></pre><p><img src="/images/3-complex-object/3-complex-object-3.png?featherlight=false&amp;width=90pc" alt="CreateGetPostByTag"></p>
 <ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the response mapping template</strong></li>
 </ul>
-<pre><code>{
-    &quot;posts&quot;: $utils.toJson($context.result.items)
+<pre tabindex="0"><code>{
+    &#34;posts&#34;: $utils.toJson($context.result.items)
     #if( ${context.result.nextToken} )
-        ,&quot;nextToken&quot;: $util.toJson($context.result.nextToken)
+        ,&#34;nextToken&#34;: $util.toJson($context.result.nextToken)
     #end
 }
 </code></pre><p><img src="/images/3-complex-object/3-complex-object-4.png?featherlight=false&amp;width=90pc" alt="CreateGetPostByTag"></p>
@@ -643,24 +643,24 @@
 <ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the request mapping template</strong></li>
 </ul>
-<pre><code>{
-    &quot;version&quot; : &quot;2017-02-28&quot;,
-    &quot;operation&quot; : &quot;UpdateItem&quot;,
-    &quot;key&quot; : {
-        &quot;id&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
+<pre tabindex="0"><code>{
+    &#34;version&#34; : &#34;2017-02-28&#34;,
+    &#34;operation&#34; : &#34;UpdateItem&#34;,
+    &#34;key&#34; : {
+        &#34;id&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
     },
-    &quot;update&quot; : {
-        &quot;expression&quot; : &quot;ADD tags :tags, version :plusOne&quot;,
-        &quot;expressionValues&quot; : {
-            &quot;:tags&quot; : { &quot;SS&quot;: [ $util.toJson($context.arguments.tag) ] },
-            &quot;:plusOne&quot; : { &quot;N&quot; : 1 }
+    &#34;update&#34; : {
+        &#34;expression&#34; : &#34;ADD tags :tags, version :plusOne&#34;,
+        &#34;expressionValues&#34; : {
+            &#34;:tags&#34; : { &#34;SS&#34;: [ $util.toJson($context.arguments.tag) ] },
+            &#34;:plusOne&#34; : { &#34;N&#34; : 1 }
         }
     }
 }
 </code></pre><ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the response mapping template</strong></li>
 </ul>
-<pre><code>$utils.toJson($context.result)
+<pre tabindex="0"><code>$utils.toJson($context.result)
 </code></pre><ul>
 <li>Ấn <strong>Save Resolver</strong></li>
 </ul>
@@ -678,24 +678,24 @@
 <ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the request mapping template</strong></li>
 </ul>
-<pre><code>{
-    &quot;version&quot; : &quot;2017-02-28&quot;,
-    &quot;operation&quot; : &quot;UpdateItem&quot;,
-    &quot;key&quot; : {
-        &quot;id&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
+<pre tabindex="0"><code>{
+    &#34;version&#34; : &#34;2017-02-28&#34;,
+    &#34;operation&#34; : &#34;UpdateItem&#34;,
+    &#34;key&#34; : {
+        &#34;id&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
     },
-    &quot;update&quot; : {
-        &quot;expression&quot; : &quot;DELETE tags :tags ADD version :plusOne&quot;,
-        &quot;expressionValues&quot; : {
-            &quot;:tags&quot; : { &quot;SS&quot;: [ $util.toJson($context.arguments.tag) ] },
-            &quot;:plusOne&quot; : { &quot;N&quot; : 1 }
+    &#34;update&#34; : {
+        &#34;expression&#34; : &#34;DELETE tags :tags ADD version :plusOne&#34;,
+        &#34;expressionValues&#34; : {
+            &#34;:tags&#34; : { &#34;SS&#34;: [ $util.toJson($context.arguments.tag) ] },
+            &#34;:plusOne&#34; : { &#34;N&#34; : 1 }
         }
     }
 }
 </code></pre><ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the response mapping template</strong></li>
 </ul>
-<pre><code>$utils.toJson($context.result)
+<pre tabindex="0"><code>$utils.toJson($context.result)
 </code></pre><ul>
 <li>Ấn <strong>Save Resolver</strong></li>
 </ul>
@@ -706,9 +706,9 @@
 <ul>
 <li>Dán đoạn script dưới đây vào phần <strong>Queries</strong></li>
 </ul>
-<pre><code>query allPostsByAuthor {
+<pre tabindex="0"><code>query allPostsByAuthor {
   allPostsByAuthor(
-    author: &quot;Nadia&quot;
+    author: &#34;Nadia&#34;
   ) {
     posts {
       id
@@ -724,8 +724,8 @@
 <ol start="9">
 <li>Dán đoạn script sau để thêm tag cho đối tượng vừa trả về bên trên, sau đó ấn <strong>Execute query</strong> (nút màu cam)</li>
 </ol>
-<pre><code>mutation addTag {
-  addTag(id:10 tag: &quot;dog&quot;) {
+<pre tabindex="0"><code>mutation addTag {
+  addTag(id:10 tag: &#34;dog&#34;) {
     id
     title
     tags
@@ -739,8 +739,8 @@
 <ol start="11">
 <li>Dán đoạn script sau để xoá một tag, sau đó ấn <strong>Execute query</strong> (nút màu cam)</li>
 </ol>
-<pre><code>mutation removeTag {
-  addTag(id:10 tag: &quot;puppy&quot;) {
+<pre tabindex="0"><code>mutation removeTag {
+  addTag(id:10 tag: &#34;puppy&#34;) {
     id
     title
     tags
@@ -750,8 +750,8 @@
 <ol start="12">
 <li>Dán script sau để lấy ra toàn bộ bài đăng có tag là <strong>dog</strong>, sau đó ấn <strong>Execute query</strong> (nút màu cam)</li>
 </ol>
-<pre><code>query allPostsByTag {
-  allPostsByTag(tag: &quot;dog&quot;) {
+<pre tabindex="0"><code>query allPostsByTag {
+  allPostsByTag(tag: &#34;dog&#34;) {
     posts {
       id
       title
@@ -768,14 +768,14 @@
 <ul>
 <li>Thêm một kiểu <strong>Comment</strong> mới</li>
 </ul>
-<pre><code>type Comment {
+<pre tabindex="0"><code>type Comment {
     author: String!
     comment: String!
 }
 </code></pre><ul>
 <li>Thêm thuộc tính <strong>comments</strong> cho kiểu <strong>Post</strong></li>
 </ul>
-<pre><code>type Post {
+<pre tabindex="0"><code>type Post {
   id: ID!
   author: String
   title: String
@@ -790,7 +790,7 @@
 </code></pre><ul>
 <li>Thêm dòng sau vào kiểu <strong>Mutation</strong> để thêm một mutation mới <strong>addComment</strong></li>
 </ul>
-<pre><code>  addComment(id: ID!, author: String!, comment: String!): Post
+<pre tabindex="0"><code>  addComment(id: ID!, author: String!, comment: String!): Post
 </code></pre><ul>
 <li>Ấn <strong>Save Schema</strong>, sau đó ấn <strong>Attach</strong> ở phần <strong>Revolvers</strong> của mutation <strong>addComment</strong></li>
 </ul>
@@ -801,31 +801,31 @@
 <ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the request mapping template</strong></li>
 </ul>
-<pre><code>{
-  &quot;version&quot; : &quot;2017-02-28&quot;,
-  &quot;operation&quot; : &quot;UpdateItem&quot;,
-  &quot;key&quot; : {
-    &quot;id&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
+<pre tabindex="0"><code>{
+  &#34;version&#34; : &#34;2017-02-28&#34;,
+  &#34;operation&#34; : &#34;UpdateItem&#34;,
+  &#34;key&#34; : {
+    &#34;id&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.id)
   },
-  &quot;update&quot; : {
-    &quot;expression&quot; : &quot;SET comments = list_append(if_not_exists(comments, :emptyList), :newComment) ADD version :plusOne&quot;,
-    &quot;expressionValues&quot; : {
-      &quot;:emptyList&quot;: { &quot;L&quot; : [] },
-      &quot;:newComment&quot; : { &quot;L&quot; : [
-        { &quot;M&quot;: {
-          &quot;author&quot;: $util.dynamodb.toDynamoDBJson($context.arguments.author),
-          &quot;comment&quot;: $util.dynamodb.toDynamoDBJson($context.arguments.comment)
+  &#34;update&#34; : {
+    &#34;expression&#34; : &#34;SET comments = list_append(if_not_exists(comments, :emptyList), :newComment) ADD version :plusOne&#34;,
+    &#34;expressionValues&#34; : {
+      &#34;:emptyList&#34;: { &#34;L&#34; : [] },
+      &#34;:newComment&#34; : { &#34;L&#34; : [
+        { &#34;M&#34;: {
+          &#34;author&#34;: $util.dynamodb.toDynamoDBJson($context.arguments.author),
+          &#34;comment&#34;: $util.dynamodb.toDynamoDBJson($context.arguments.comment)
           }
         }
       ] },
-      &quot;:plusOne&quot; : $util.dynamodb.toDynamoDBJson(1)
+      &#34;:plusOne&#34; : $util.dynamodb.toDynamoDBJson(1)
     }
   }
 }
 </code></pre><ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the response mapping template</strong></li>
 </ul>
-<pre><code>$utils.toJson($context.result)
+<pre tabindex="0"><code>$utils.toJson($context.result)
 </code></pre><ul>
 <li>Sau đó ấn <strong>Save Resolver</strong></li>
 </ul>
@@ -1079,19 +1079,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1676545517"></script>
-    <script src="/js/perfect-scrollbar.min.js?1676545517"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1676545517"></script>
-    <script src="/js/jquery.sticky.js?1676545517"></script>
-    <script src="/js/featherlight.min.js?1676545517"></script>
-    <script src="/js/highlight.pack.js?1676545517"></script>
+    <script src="/js/clipboard.min.js?1678261536"></script>
+    <script src="/js/perfect-scrollbar.min.js?1678261536"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1678261536"></script>
+    <script src="/js/jquery.sticky.js?1678261536"></script>
+    <script src="/js/featherlight.min.js?1678261536"></script>
+    <script src="/js/highlight.pack.js?1678261536"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1676545517"></script>
-    <script src="/js/learn.js?1676545517"></script>
-    <script src="/js/hugo-learn.js?1676545517"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1678261536"></script>
+    <script src="/js/learn.js?1678261536"></script>
+    <script src="/js/hugo-learn.js?1678261536"></script>
 
-    <link href="/mermaid/mermaid.css?1676545517" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1676545517"></script>
+    <link href="/mermaid/mermaid.css?1678261536" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1678261536"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

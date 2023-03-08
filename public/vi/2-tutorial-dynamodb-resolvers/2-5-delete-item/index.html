@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.69.0" />
+    <meta name="generator" content="Hugo 0.101.0" />
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Xoá dữ liệu :: AWS System Manager</title>
 
     
-    <link href="/css/nucleus.css?1676545517" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1676545517" rel="stylesheet">
-    <link href="/css/hybrid.css?1676545517" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1676545517" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1676545517" rel="stylesheet">
-    <link href="/css/auto-complete.css?1676545517" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1676545517" rel="stylesheet">
-    <link href="/css/theme.css?1676545517" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1676545517" rel="stylesheet">
+    <link href="/css/nucleus.css?1678261536" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1678261536" rel="stylesheet">
+    <link href="/css/hybrid.css?1678261536" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1678261536" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1678261536" rel="stylesheet">
+    <link href="/css/auto-complete.css?1678261536" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1678261536" rel="stylesheet">
+    <link href="/css/theme.css?1678261536" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1678261536" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1676545517" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1678261536" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1676545517"></script>
+    <script src="/js/jquery-3.3.1.min.js?1678261536"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1676545517"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1676545517"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1678261536"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1678261536"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1676545517"></script>
+<script type="text/javascript" src="/js/search.js?1678261536"></script>
 
     
   </div>
@@ -473,7 +473,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>16-02-2023</font></i>
+        <i><font color=orange>08-03-2023</font></i>
     </left>
     <left>
         <br>
@@ -568,7 +568,7 @@
 <ul>
 <li>Thêm đoạn code dưới đây vào kiểu <strong>Mutation</strong> để thêm một mutation mới là <strong>deletePost</strong></li>
 </ul>
-<pre><code>    deletePost(id: ID!, expectedVersion: Int): Post
+<pre tabindex="0"><code>    deletePost(id: ID!, expectedVersion: Int): Post
 </code></pre><ul>
 <li>Sau đó ấn <strong>Save Schema</strong></li>
 <li>Tiếp theo trong ngăn <strong>Resolvers</strong> ở bên phải, tìm trường <strong>deletePost</strong> trên kiểu Mutation, sau đó chọn <strong>Attach</strong></li>
@@ -580,17 +580,17 @@
 <ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the request mapping template</strong></li>
 </ul>
-<pre><code>{
-    &quot;version&quot; : &quot;2017-02-28&quot;,
-    &quot;operation&quot; : &quot;DeleteItem&quot;,
-    &quot;key&quot;: {
-        &quot;id&quot;: $util.dynamodb.toDynamoDBJson($context.arguments.id)
+<pre tabindex="0"><code>{
+    &#34;version&#34; : &#34;2017-02-28&#34;,
+    &#34;operation&#34; : &#34;DeleteItem&#34;,
+    &#34;key&#34;: {
+        &#34;id&#34;: $util.dynamodb.toDynamoDBJson($context.arguments.id)
     }
-    #if( $context.arguments.containsKey(&quot;expectedVersion&quot;) )
-        ,&quot;condition&quot; : {
-            &quot;expression&quot;       : &quot;attribute_not_exists(id) OR version = :expectedVersion&quot;,
-            &quot;expressionValues&quot; : {
-                &quot;:expectedVersion&quot; : $util.dynamodb.toDynamoDBJson($context.arguments.expectedVersion)
+    #if( $context.arguments.containsKey(&#34;expectedVersion&#34;) )
+        ,&#34;condition&#34; : {
+            &#34;expression&#34;       : &#34;attribute_not_exists(id) OR version = :expectedVersion&#34;,
+            &#34;expressionValues&#34; : {
+                &#34;:expectedVersion&#34; : $util.dynamodb.toDynamoDBJson($context.arguments.expectedVersion)
             }
         }
     #end
@@ -598,7 +598,7 @@
 </code></pre><ul>
 <li>Dán nội dung dưới đây vào mục <strong>Configure the response mapping template</strong></li>
 </ul>
-<pre><code>$utils.toJson($context.result)
+<pre tabindex="0"><code>$utils.toJson($context.result)
 </code></pre><ul>
 <li>Sau đó ấn <strong>Save Resolver</strong></li>
 </ul>
@@ -609,7 +609,7 @@
 <ul>
 <li>Dán đoạn script dưới đây vào phần <strong>Queries</strong>, sau đó ấn <strong>Execute query</strong> (nút màu cam)</li>
 </ul>
-<pre><code>mutation deletePost {
+<pre tabindex="0"><code>mutation deletePost {
   deletePost(id:123) {
     id
     author
@@ -629,13 +629,13 @@
 <ol start="6">
 <li>Dán đoạn script dưới đây vào phần <strong>Queries</strong>, sau đó ấn <strong>Execute query</strong> (nút màu cam) để thêm một bài đăng mới</li>
 </ol>
-<pre><code>mutation addPost {
+<pre tabindex="0"><code>mutation addPost {
   addPost(
     id:123
-    author: &quot;AUTHORNAME&quot;
-    title: &quot;Our second post!&quot;
-    content: &quot;A new post.&quot;
-    url: &quot;https://aws.amazon.com/appsync/&quot;
+    author: &#34;AUTHORNAME&#34;
+    title: &#34;Our second post!&#34;
+    content: &#34;A new post.&#34;
+    url: &#34;https://aws.amazon.com/appsync/&#34;
   ) {
     id
     author
@@ -651,7 +651,7 @@
 <ol start="7">
 <li>Dán đoạn script dưới đây vào phần <strong>Queries</strong>, sau đó ấn <strong>Execute query</strong> (nút màu cam) để xoá bài đăng có <strong>expectedVersion</strong> là 9999</li>
 </ol>
-<pre><code>mutation deletePost {
+<pre tabindex="0"><code>mutation deletePost {
   deletePost(
     id:123
     expectedVersion: 9999
@@ -919,19 +919,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1676545517"></script>
-    <script src="/js/perfect-scrollbar.min.js?1676545517"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1676545517"></script>
-    <script src="/js/jquery.sticky.js?1676545517"></script>
-    <script src="/js/featherlight.min.js?1676545517"></script>
-    <script src="/js/highlight.pack.js?1676545517"></script>
+    <script src="/js/clipboard.min.js?1678261536"></script>
+    <script src="/js/perfect-scrollbar.min.js?1678261536"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1678261536"></script>
+    <script src="/js/jquery.sticky.js?1678261536"></script>
+    <script src="/js/featherlight.min.js?1678261536"></script>
+    <script src="/js/highlight.pack.js?1678261536"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1676545517"></script>
-    <script src="/js/learn.js?1676545517"></script>
-    <script src="/js/hugo-learn.js?1676545517"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1678261536"></script>
+    <script src="/js/learn.js?1678261536"></script>
+    <script src="/js/hugo-learn.js?1678261536"></script>
 
-    <link href="/mermaid/mermaid.css?1676545517" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1676545517"></script>
+    <link href="/mermaid/mermaid.css?1678261536" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1678261536"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
