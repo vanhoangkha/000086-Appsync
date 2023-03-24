@@ -1,10 +1,10 @@
 ---
-title : "Serverless - AWS Appsync Introduction"
+title : "Serverless - Introduction to AWS AppSync"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 ---
-# Serverless - WS Appsync Introduction
+# Serverless - Introduction to AWS AppSync
 
 #### Introduction
 In the previous post we learned about CloudWatch and X-Ray, next we will build messaging for web application using AWS Appsync that interacts with GraphQL. To familiarize with AWS Appsync, in this article we will learn how AWS Appsync works by creating, updating, reading, and deleting data in DynamoDB tables.

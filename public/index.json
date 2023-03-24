@@ -15,10 +15,10 @@
 },
 {
 	"uri": "/",
-	"title": "Serverless - AWS Appsync Introduction",
+	"title": "Serverless - Introduction to AWS AppSync",
 	"tags": [],
 	"description": "",
-	"content": "Serverless - WS Appsync Introduction Introduction In the previous post we learned about CloudWatch and X-Ray, next we will build messaging for web application using AWS Appsync that interacts with GraphQL. To familiarize with AWS Appsync, in this article we will learn how AWS Appsync works by creating, updating, reading, and deleting data in DynamoDB tables.\nContent  Introduction Tutorial: DynamoDB Resolvers Create complex object Cleanup  "
+	"content": "Serverless - Introduction to AWS AppSync Introduction In the previous post we learned about CloudWatch and X-Ray, next we will build messaging for web application using AWS Appsync that interacts with GraphQL. To familiarize with AWS Appsync, in this article we will learn how AWS Appsync works by creating, updating, reading, and deleting data in DynamoDB tables.\nContent  Introduction Tutorial: DynamoDB Resolvers Create complex object Cleanup  "
 },
 {
 	"uri": "/2-tutorial-dynamodb-resolvers/",
