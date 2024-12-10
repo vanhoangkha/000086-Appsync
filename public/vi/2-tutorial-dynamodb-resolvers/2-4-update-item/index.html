@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.1" />
+    <meta name="generator" content="Hugo 0.133.0">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
@@ -12,21 +12,21 @@
     <title>Cập nhật dữ liệu :: Serverless - Introduction to AWS AppSync</title>
 
     
-    <link href="/css/nucleus.css?1701091536" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1701091536" rel="stylesheet">
-    <link href="/css/hybrid.css?1701091536" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1701091536" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1701091536" rel="stylesheet">
-    <link href="/css/auto-complete.css?1701091536" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1701091536" rel="stylesheet">
-    <link href="/css/theme.css?1701091536" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1701091536" rel="stylesheet">
+    <link href="/css/nucleus.css?1733816454" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1733816454" rel="stylesheet">
+    <link href="/css/hybrid.css?1733816454" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1733816454" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1733816454" rel="stylesheet">
+    <link href="/css/auto-complete.css?1733816454" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1733816454" rel="stylesheet">
+    <link href="/css/theme.css?1733816454" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1733816454" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1701091536" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1733816454" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1701091536"></script>
+    <script src="/js/jquery-3.3.1.min.js?1733816454"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1701091536"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1701091536"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1733816454"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1733816454"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1701091536"></script>
+<script type="text/javascript" src="/js/search.js?1733816454"></script>
 
     
   </div>
@@ -224,7 +224,7 @@
   
     
     <li data-nav-id="/vi/2-tutorial-dynamodb-resolvers/2-4-update-item/" title="Cập nhật dữ liệu" class="dd-item 
-        parent
+        
         active
         
         ">
@@ -473,7 +473,7 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>27-11-2023</font></i>
+        <i><font color=orange>10-12-2024</font></i>
     </left>
     <left>
         <br>
@@ -585,11 +585,11 @@
         content: String!,
         url: String!
     ): Post
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-1.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-1.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Trong ngăn <strong>Resolvers</strong> ở bên phải, tìm trường <strong>updatePost</strong> trên kiểu Mutation, sau đó chọn <strong>Attach</strong></li>
 </ol>
-<p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-2.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+<p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-2.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Chọn <strong>PostDynamoDBTable</strong> cho mục <strong>Data source name</strong></li>
 </ol>
@@ -616,7 +616,7 @@
         }
     }
 }
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-3.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-3.png?featherlight=false&width=90pc"></p>
 
 <div class="notices note" ><p>Resolver này đang sử dụng DynamoDB UpdateItem, khác biệt đáng kể với hoạt động PutItem. Thay vì viết toàn bộ mục, bạn chỉ yêu cầu DynamoDB cập nhật một số thuộc tính nhất định. Để làm được điều này cần sử dụng DynamoDB Update Expressions. Bạn có thể thấy phần &ldquo;expression&rdquo; trong mục &ldquo;update&rdquo;. Nó cho biết đặt thuộc tính author, title, content và url, sau đó tăng trường version. Expression có các placeholder có tên bắt đầu bằng dấu hai chấm, sau đó được xác định trong trường &ldquo;expressionValues&rdquo;. Cuối cùng, DynamoDB có các từ dành riêng không thể xuất hiện trong expression. Ví dụ: url là một từ dành riêng, do đó, để cập nhật trường url, bạn có thể sử dụng  placeholder tên và xác định chúng trong trường &ldquo;expressionNames&rdquo;.</p>
 </div>
@@ -625,11 +625,11 @@
 <li>Kéo xuống dưới, dán nội dung dưới đây vào mục <strong>Configure the response mapping template</strong></li>
 </ol>
 <pre tabindex="0"><code>$utils.toJson($context.result)
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-4.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-4.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Kéo lên trên, ấn <strong>Save Resolver</strong></li>
 </ol>
-<p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-5.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+<p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-5.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Chọn tab <strong>Queries</strong> để thực hiện gọi API để cập nhật một bài đăng</li>
 </ol>
@@ -654,7 +654,7 @@
     version
   }
 }
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-6.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-6.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>Kết quả trả về tương tự như sau:</li>
 </ol>
@@ -672,7 +672,7 @@
     }
   }
 }
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-7.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-7.png?featherlight=false&width=90pc"></p>
 <p>Sau khi thực hiện sau việc cập nhật, thuộc tính <strong>version</strong> được tăng lên một đơn vị vì chúng ta đã yêu cầu  AWS AppSync và DynamoDB thêm một đơn vị cho thuộc tính <strong>version</strong> mỗi khi cập nhật.</p>
 <p>Khi bạn sử dụng mutation updatePost như trên sẽ xảy ra 2 vấn đề sau:</p>
 <ul>
@@ -695,7 +695,7 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
         url: String,
         expectedVersion: Int!
     ): Post
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-8.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-8.png?featherlight=false&width=90pc"></p>
 <ol start="9">
 <li>
 <p>Trong ngăn <strong>Resolvers</strong> ở bên phải, tìm trường <strong>updatePost</strong> trên kiểu Mutation, sau đó chọn <strong>Attach</strong></p>
@@ -796,8 +796,8 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
         }
     }
 }
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-10.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver">
-<img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-11.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-10.png?featherlight=false&width=90pc">
+<img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-11.png?featherlight=false&width=90pc"></p>
 <ol start="11">
 <li>Chọn tab <strong>Queries</strong> để thực hiện gọi API để cập nhật một bài đăng</li>
 </ol>
@@ -821,7 +821,7 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
     version
   }
 }
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-12.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-12.png?featherlight=false&width=90pc"></p>
 <ol start="12">
 <li>Kết quả trả về tương tự như sau:</li>
 </ol>
@@ -839,7 +839,7 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
     }
   }
 }
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-13.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-13.png?featherlight=false&width=90pc"></p>
 
 <div class="notices note" ><p>Trong yêu cầu này, chúng ta yêu cầu AWS AppSync và DynamoDB chỉ cập nhật trường <strong>title</strong> và <strong>content</strong>, giữ nguyên các trường khác trừ việc tăng trường <strong>version</strong>.</p>
 </div>
@@ -847,7 +847,7 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
 <ol start="13">
 <li>Thử ấn nút <strong>Execute query</strong> lần nữa, kết quả trả về tương tự như sau:</li>
 </ol>
-<p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-14.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+<p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-14.png?featherlight=false&width=90pc"></p>
 <p>Yêu cầu không thành công vì biểu thức điều kiện thực hiện sai:</p>
 <ul>
 <li>Lần đầu tiên chạy, giá trị của trường <strong>version</strong> của bài đăng trong DynamoDB là 2, khớp với <strong>expectedVersion</strong>. Yêu cầu thành công, có nghĩa là trường phiên bản đã được tăng trong DynamoDB lên 3.</li>
@@ -867,7 +867,7 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
 <li>Sau đó ấn <strong>Save Schema</strong></li>
 <li>Tiếp theo trong ngăn <strong>Resolvers</strong> ở bên phải, tìm trường <strong>upvotePost</strong> trên kiểu Mutation, sau đó chọn <strong>Attach</strong></li>
 </ul>
-<p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-15.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+<p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-15.png?featherlight=false&width=90pc"></p>
 <ol start="2">
 <li>Chọn <strong>PostDynamoDBTable</strong> cho mục <strong>Data source name</strong></li>
 </ol>
@@ -894,14 +894,14 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
 </code></pre><ul>
 <li>Ấn <strong>Save Resolver</strong></li>
 </ul>
-<p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-16.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+<p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-16.png?featherlight=false&width=90pc"></p>
 <ol start="3">
 <li>Chọn tab <strong>Schema</strong></li>
 </ol>
 <ul>
 <li>Trong ngăn <strong>Resolvers</strong> ở bên phải, tìm trường <strong>downvotePost</strong> trên kiểu Mutation, sau đó chọn <strong>Attach</strong></li>
 </ul>
-<p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-17.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+<p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-17.png?featherlight=false&width=90pc"></p>
 <ol start="4">
 <li>Chọn <strong>PostDynamoDBTable</strong> cho mục <strong>Data source name</strong></li>
 </ol>
@@ -928,7 +928,7 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
 </code></pre><ul>
 <li>Ấn <strong>Save Resolver</strong></li>
 </ul>
-<p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-18.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+<p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-18.png?featherlight=false&width=90pc"></p>
 <ol start="5">
 <li>Chọn tab <strong>Queries</strong></li>
 </ol>
@@ -947,7 +947,7 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
     version
   }
 }
-</code></pre><p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-20.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+</code></pre><p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-20.png?featherlight=false&width=90pc"></p>
 <ol start="6">
 <li>Kết quả trả về tương tự như sau:</li>
 </ol>
@@ -983,7 +983,7 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
 </code></pre><ul>
 <li>Ấn nút <strong>Execute query</strong> (nút màu cam)</li>
 </ul>
-<p><img src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-21.png?featherlight=false&amp;width=90pc" alt="CreateAddPostResolver"></p>
+<p><img alt="CreateAddPostResolver" src="/images/2-tutorial-dynamodb-resolvers/2-4-update-item-21.png?featherlight=false&width=90pc"></p>
 <ol start="8">
 <li>Ấn nút <strong>Execute query</strong> (nút màu cam) lần nữa bạn sẽ thấy trường &ldquo;downs&rdquo; tăng lên</li>
 </ol>
@@ -1233,19 +1233,19 @@ Thực hiện các bước tiếp theo để khắc phục vấn đề trên</li
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1701091536"></script>
-    <script src="/js/perfect-scrollbar.min.js?1701091536"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1701091536"></script>
-    <script src="/js/jquery.sticky.js?1701091536"></script>
-    <script src="/js/featherlight.min.js?1701091536"></script>
-    <script src="/js/highlight.pack.js?1701091536"></script>
+    <script src="/js/clipboard.min.js?1733816454"></script>
+    <script src="/js/perfect-scrollbar.min.js?1733816454"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1733816454"></script>
+    <script src="/js/jquery.sticky.js?1733816454"></script>
+    <script src="/js/featherlight.min.js?1733816454"></script>
+    <script src="/js/highlight.pack.js?1733816454"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1701091536"></script>
-    <script src="/js/learn.js?1701091536"></script>
-    <script src="/js/hugo-learn.js?1701091536"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1733816454"></script>
+    <script src="/js/learn.js?1733816454"></script>
+    <script src="/js/hugo-learn.js?1733816454"></script>
 
-    <link href="/mermaid/mermaid.css?1701091536" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1701091536"></script>
+    <link href="/mermaid/mermaid.css?1733816454" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1733816454"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

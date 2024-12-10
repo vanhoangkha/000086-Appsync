@@ -4,6 +4,8 @@
     <title>Cleanup on Serverless - Introduction to AWS AppSync</title>
     <link>/4-clean-up/</link>
     <description>Recent content in Cleanup on Serverless - Introduction to AWS AppSync</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="/4-clean-up/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <atom:link href="/4-clean-up/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
