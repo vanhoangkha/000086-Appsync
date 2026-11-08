@@ -22,7 +22,7 @@ In the previous post we learned about CloudWatch and X-Ray, next we will build m
    - Scanning table
    - Querying table
 3. Create complex object
-4. Cleanup
+4. Clean up
 
 ## Prerequisites
 
